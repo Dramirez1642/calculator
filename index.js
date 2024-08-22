@@ -18,10 +18,12 @@ const divide = function(a, b) {
 
 
 // Variables definition
-let num1 = 0;
-let num2;
+let currentNum = '';
+let previousNum;
 let operator;
 
+let displayElem = document.querySelector('.display');
+displayElem.textContent = currentNum;
 
 // The operate function that will call the above functions
 const operate = function(a, b, operator) {
@@ -40,6 +42,25 @@ const operate = function(a, b, operator) {
 }
 
 // Display code
+const populateDisplay = function(input) {
+    console.log(input)
+    if (input != '0') {
+        currentNum = currentNum + input;
+        displayElem.textContent = currentNum;
+    }
+    else if (input == '0') {
+        if (currentNum != '') {
+            currentNum = currentNum + input;
+            displayElem.textContent = currentNum;
+        }
+    }
+}
 
-let display;
+
+let buttons = document.querySelector('.buttons')
+buttons.addEventListener('click', function(e) {
+    populateDisplay(e.target.id)
+})
+
+
 
