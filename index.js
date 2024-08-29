@@ -2,7 +2,7 @@
 
 
 // Variables definition
-let currentNum = '';
+let currentNum = '0';
 let previousNum;
 let operator = '';
 
@@ -44,7 +44,8 @@ const populateDisplay = function(input) {
         }
     }
     else if (input == '%') {
-        alert("Not implemented, it's just for the look. Go look up what this button actually does on the windows calculator and tell me you can explain what the fuck that is.")
+        currentNum = Number(currentNum)/100;
+        //alert("Not implemented, it's just for the look. Go look up what this button actually does on the windows calculator and tell me you can explain what the fuck that is.")
     }
     else if (input == 'backspace'){
         currentNum = currentNum.toString().slice(0, currentNum.toString().length - 1);
@@ -75,13 +76,13 @@ const populateDisplay = function(input) {
         previousNum = currentNum;
         currentNum = '';
     }
-    else if (input == '0' && currentNum == ''){
-        alert("You can't have leading zeros.")
+    else if (input == '0' && currentNum == '0'){
+        console.log("Doing nothing for leading zeros. Easy solution. :)")
     }
     else {
         currentNum = currentNum + input;
     }
-    displayElem.textContent = currentNum;
+    displayElem.textContent = Number(currentNum);
 }
 
 
