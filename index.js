@@ -37,9 +37,11 @@ const populateDisplay = function(input) {
         currentNum = '';
     }
     else if (input == 'equals') {
-        currentNum = operate(previousNum, currentNum, operator);
-        previousNum = '';
-        operator = ''
+        if (previousNum != '') {
+            currentNum = operate(previousNum, currentNum, operator);
+            previousNum = '';
+            operator = ''
+        }
     }
     else if (input == '%') {
         alert("Not implemented, it's just for the look. Go look up what this button actually does on the windows calculator and tell me you can explain what the fuck that is.")
